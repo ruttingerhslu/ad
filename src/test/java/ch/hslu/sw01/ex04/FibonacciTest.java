@@ -23,6 +23,11 @@ class FibonacciTest {
     }
 
     @Test
+    void testFibRec1() {
+        assertEquals(377, fibonacci.fiboRec1(14));
+    }
+
+    @Test
     void testFibRec2() {
         assertEquals(377, fibonacci.fiboRec2(14));
     }
@@ -30,5 +35,10 @@ class FibonacciTest {
     @Test
     void testFibIter() {
         assertEquals(377, fibonacci.fiboIter(14));
+    }
+
+    @Test
+    void testFibIterZero() {
+        assertEquals(0, fibonacci.fiboIter(0));
     }
 }

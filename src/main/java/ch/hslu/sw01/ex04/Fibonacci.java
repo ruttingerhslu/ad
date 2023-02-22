@@ -25,10 +25,12 @@ public class Fibonacci {
     }
 
     public int fiboIter(final int n) {
-        int fiboSeq[];
-        for (int i = 0; i < n; i++) {
-            fiboSeq
+        Map<Integer, Integer> sequence = new HashMap<>();
+        sequence.put(0, 0);
+        sequence.put(1, 1);
+        for (int i = 2; i <= n; i++) {
+            sequence.put(i, sequence.get(i-2) + sequence.get(i-1));
         }
-        return result;
+        return sequence.get(n);
     }
 }
