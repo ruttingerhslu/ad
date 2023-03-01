@@ -5,6 +5,7 @@ public class SymmetricNumbers {
     public static void main(String[] args) {
         System.out.println(isSymmetric(7, 2347432));
     }
+
     public static boolean isSymmetric(int length, int number) {
         int[] numbers = new int[length];
         int temp = number;

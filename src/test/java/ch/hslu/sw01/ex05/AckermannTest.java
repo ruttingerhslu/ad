@@ -9,6 +9,6 @@ class AckermannTest {
 
     @Test
     void ackTest() {
-        assertEquals(61, ack.ack(3,3));
+        assertEquals(61, ack.ack(5,3));
     }
 }
