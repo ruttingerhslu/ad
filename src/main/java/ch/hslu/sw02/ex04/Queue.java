@@ -3,14 +3,14 @@ package ch.hslu.sw02.ex04;
 import java.util.Arrays;
 
 public class Queue<Item> {
-    private int capacity;
+    private final int capacity;
     public int readPos  = -1;
     public int writePos = -1;
-    private Item[] elements;
+    private final Item[] elements;
 
     public Queue(int capacity) {
         this.capacity = capacity;
-        elements = (Item[])new Object[capacity];
+        elements = (Item[]) new Object[capacity];
     }
 
     public void enqueue(Item item) {
