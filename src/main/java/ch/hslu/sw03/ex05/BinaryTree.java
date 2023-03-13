@@ -30,8 +30,19 @@ public class BinaryTree implements Tree{
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
-        tree.insert(11);
+        tree.insert(13);
         System.out.println(tree.search(11).toString());
+        tree.inorder(tree.getRoot());
+        tree.preorder(tree.getRoot());
+        tree.postorder(tree.getRoot());
+    }
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
     }
 
     @Override
@@ -49,7 +60,33 @@ public class BinaryTree implements Tree{
         return this.root.search(query);
     }
 
-    public void setRoot(Node root) {
-        this.root = root;
+    public void inorder(Node node) {
+        if (node.hasLeftChild()) {
+            inorder(node.getLeftChild());
+        }
+        System.out.println(node.getValue());
+        if (node.hasRightChild()) {
+            inorder(node.getRightChild());
+        }
+    }
+
+    public void preorder(Node node) {
+        System.out.println(node.getValue());
+        if (node.hasLeftChild()) {
+            inorder(node.getLeftChild());
+        }
+        if (node.hasRightChild()) {
+            inorder(node.getRightChild());
+        }
+    }
+
+    public void postorder(Node node) {
+        if (node.hasLeftChild()) {
+            inorder(node.getLeftChild());
+        }
+        if (node.hasRightChild()) {
+            inorder(node.getRightChild());
+        }
+        System.out.println(node.getValue());
     }
 }

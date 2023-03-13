@@ -35,13 +35,21 @@ public class Node implements Comparable<Integer> {
         this.rightChild = node;
     }
 
+    public boolean hasLeftChild() {
+        return this.leftChild != null;
+    }
+
+    public boolean hasRightChild() {
+        return this.rightChild != null;
+    }
+
     public Node search(int query) {
         int result = this.compareTo(query);
-        if (result == 0) {
+        if (result == 0 && this.hashCode() == Objects.hash(query)) {
             return this;
-        } else if(result < 0 && this.getLeftChild() != null) {
+        } else if(result < 0 && this.hasLeftChild()) {
             return this.getLeftChild().search(query);
-        } else if(this.getRightChild() != null) {
+        } else if(this.hasRightChild()) {
             return this.getRightChild().search(query);
         }
         return null;
@@ -52,12 +60,12 @@ public class Node implements Comparable<Integer> {
         if (result == 0) {
             this.setValue(node.getValue());
         } else if (result < 0) {
-            if (this.getLeftChild() != null) {
+            if (this.hasLeftChild()) {
                 this.getLeftChild().insert(node);
             } else {
                 this.setLeftChild(node);
             }
-        } else if (this.getRightChild() != null) {
+        } else if (this.hasRightChild()) {
             this.getRightChild().insert(node);
         } else {
             this.setRightChild(node);
@@ -74,12 +82,12 @@ public class Node implements Comparable<Integer> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Node node = (Node) o;
-        return getValue() == node.getValue() && Objects.equals(getLeftChild(), node.getLeftChild()) && Objects.equals(getRightChild(), node.getRightChild());
+        return getValue() == node.getValue();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getValue(), getLeftChild(), getRightChild());
+        return Objects.hash(getValue());
     }
 
     @Override
