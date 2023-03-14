@@ -73,19 +73,19 @@ public class BinaryTree implements Tree{
     public void preorder(Node node) {
         System.out.println(node.getValue());
         if (node.hasLeftChild()) {
-            inorder(node.getLeftChild());
+            preorder(node.getLeftChild());
         }
         if (node.hasRightChild()) {
-            inorder(node.getRightChild());
+            preorder(node.getRightChild());
         }
     }
 
     public void postorder(Node node) {
         if (node.hasLeftChild()) {
-            inorder(node.getLeftChild());
+            postorder(node.getLeftChild());
         }
         if (node.hasRightChild()) {
-            inorder(node.getRightChild());
+            postorder(node.getRightChild());
         }
         System.out.println(node.getValue());
     }

@@ -2,7 +2,7 @@ package ch.hslu.sw03.ex05;
 
 import java.util.Objects;
 
-public class Node implements Comparable<Integer> {
+public final class Node implements Comparable<Integer> {
     private int value;
     private Node leftChild;
     private Node rightChild;
