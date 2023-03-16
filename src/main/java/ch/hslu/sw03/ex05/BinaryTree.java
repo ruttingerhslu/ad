@@ -30,8 +30,8 @@ public class BinaryTree implements Tree{
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
-        tree.insert(13);
-        System.out.println(tree.search(11).toString());
+        tree.insert(20);
+        System.out.println(tree.search(5).toString());
         tree.inorder(tree.getRoot());
         tree.preorder(tree.getRoot());
         tree.postorder(tree.getRoot());
