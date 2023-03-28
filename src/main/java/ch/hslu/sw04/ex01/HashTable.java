@@ -1,5 +1,7 @@
 package ch.hslu.sw04.ex01;
 
+import java.util.Arrays;
+
 public class HashTable {
     private final DataItem[] hashArray;
     private static final int SIZE = 10;
@@ -24,5 +26,17 @@ public class HashTable {
 
     public int hashCode(int key) {
         return key % SIZE;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        HashTable hashTable = (HashTable) o;
+        return this == o || Arrays.equals(hashArray, hashTable.hashArray);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(hashArray);
     }
 }
