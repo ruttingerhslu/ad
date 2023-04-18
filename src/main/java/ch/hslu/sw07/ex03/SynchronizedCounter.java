@@ -19,34 +19,17 @@ package ch.hslu.sw07.ex03;
  * Thread-sicherer Zähler.
  */
 public final class SynchronizedCounter implements Counter {
+    private int count = 0;
 
-    /**
-     * Erzeugt einen Zähler mit Zählerstand 0.
-     */
-    public SynchronizedCounter() {
+    public synchronized void increment() {
+        count++;
     }
 
-    /**
-     * see ch.hslu.ad.exercise.sw07.count.Counter#increment()
-     */
-    @Override
-    public void increment() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public synchronized void decrement() {
+        count--;
     }
 
-    /**
-     * see ch.hslu.ad.exercise.sw07.count.Counter#decrement()
-     */
-    @Override
-    public void decrement() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     * see ch.hslu.ad.exercise.sw07.count.Counter#get()
-     */
-    @Override
-    public int get() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public synchronized int get() {
+        return count;
     }
 }

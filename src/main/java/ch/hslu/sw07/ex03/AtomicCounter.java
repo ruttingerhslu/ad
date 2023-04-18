@@ -15,38 +15,23 @@
  */
 package ch.hslu.sw07.ex03;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Thread-sicherer Zähler mit AtomicInteger.
  */
 public final class AtomicCounter implements Counter {
+    private final AtomicInteger count = new AtomicInteger();
 
-    /**
-     * Erzeugt einen Zähler mit Zählerstand 0.
-     */
-    public AtomicCounter() {
-    }
-
-    /**
-     * see ch.hslu.ad.exercise.sw07.count.Counter#increment()
-     */
-    @Override
     public void increment() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        count.incrementAndGet();
     }
 
-    /**
-     * see ch.hslu.ad.exercise.sw07.count.Counter#decrement()
-     */
-    @Override
     public void decrement() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        count.decrementAndGet();
     }
 
-    /**
-     * see ch.hslu.ad.exercise.sw07.count.Counter#get()
-     */
-    @Override
     public int get() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return count.get();
     }
 }
