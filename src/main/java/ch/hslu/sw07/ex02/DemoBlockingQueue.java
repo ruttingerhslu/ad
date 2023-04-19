@@ -18,7 +18,7 @@ public class DemoBlockingQueue {
         final ExecutorService executor = Executors.newCachedThreadPool();
         final List<Future<Long>> futures = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
-            futures.add(executor.submit(new QueueProducer(queue, 1000)));
+            futures.add(executor.submit(new QueueProducer(queue, 100001)));
         }
         Iterator<Future<Long>> iterator = futures.iterator();
         long totProd = 0;
